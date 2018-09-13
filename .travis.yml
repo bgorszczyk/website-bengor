@@ -1,6 +1,1 @@
 language: java
-
-deploy:
-  provider: heroku
-  api_key: ae30d291-33c4-40a7-83e7-e043c8f565e9
-  on: prod
