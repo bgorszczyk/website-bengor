@@ -1,14 +1,14 @@
 package com.bengor.website.websitebengor;
 
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-@RestController
-public class HelloController {
+@Controller
+public class BienvenueController {
 
     @RequestMapping("/")
     public String index() {
-        return "Bonjour test travis";
+        return "bienvenue";
     }
 
 }
