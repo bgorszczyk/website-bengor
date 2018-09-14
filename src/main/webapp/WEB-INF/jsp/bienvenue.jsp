@@ -6,61 +6,144 @@
 	    <meta charset="UTF-8">  
 	  	<meta name="viewport" content="width=device-width, initial-scale=1">
 	    
+		<!--  CSS nécessaires à la plupart des pages  -->
 		<%@include file="includes/includeCSSProjet.jsp" %>
+		<!-- CSS nécessaire à l'utilisation du composant fullcalendar  -->
+		<link rel="stylesheet" href="fullcalendar/fullcalendar.css" />
 	
 	</head>
 	
 	<body data-spy="scroll" data-target="#myScrollspy" data-offset="15">
 	
-	<div class="container-fluid" style="background-color:#2196F3;color:#fff;height:220px;">
-		<h1>Scrollspy & Affix Example</h1>
-		<h3>Fixed vertical sidenav on scroll</h3>
-		<p>Scroll this page to see how the navbar behaves with data-spy="affix" and data-spy="scrollspy".</p>
-		<p>The left menu sticks the page after you have scrolled a specified amount of pixels, and the links in the menu are automatically updated based on scroll position.</p>
-	</div>
-	<br>
-	
-	<div class="container">
-		<div class="row">
-			<nav class="col-sm-3" id="myScrollspy">
-				<ul class="nav nav-pills nav-stacked" data-spy="affix" data-offset-top="205">
-					<li><a href="#section1">Section 1</a></li>
-					<li><a href="#section2">Section 2</a></li>
-					<li><a href="#section3">Section 3</a></li>
-					<li class="dropdown">
-						<a class="dropdown-toggle" data-toggle="dropdown" href="#">Section 4 <span class="caret"></span></a>
-						<ul class="dropdown-menu">
-							<li><a href="#section41">Section 4-1</a></li>
-			            	<li><a href="#section42">Section 4-2</a></li>
-						</ul>
-					</li>
-				</ul>
-			</nav>
-			<div class="col-sm-9">
-				<div id="section1">    
-					<h1>Section 1</h1>
-					<p>Try to scroll this section and look at the navigation list while scrolling!</p>
-				</div>
-				<div id="section2"> 
-					<h1>Section 2</h1>
-					<p>Try to scroll this section and look at the navigation list while scrolling!</p>
-				</div>        
-				<div id="section3">
-					<h1>Section 3</h1>
-					<p>Try to scroll this section and look at the navigation list while scrolling!</p>
-				</div>
-				<div id="section41">
-					<h1>Section 4-1</h1>
-					<p>Try to scroll this section and look at the navigation list while scrolling!</p>
-				</div>      
-				<div id="section42">
-					<h1>Section 4-2</h1>
-					<p>Try to scroll this section and look at the navigation list while scrolling!</p>
-				</div>
+		<nav class="navbar navbar-default">
+			<div class="container-fluid">
+		    	<div class="navbar-header">
+		      		<a class="navbar-brand" href="#">Bengor Website</a>
+		    	</div>
+		    	<ul class="nav navbar-nav">
+		    		<li class="active"><a href="#">Home</a></li>
+		    	</ul>
 			</div>
+		</nav>
+		<div class="container">
+		    <div class="row">
+		    	<!-- Header-->
+		        <div class="col-xs-12">
+		        
+		        </div>
+		    </div>
+		    <div class="row">
+		    
+		    	<!-- Side -->
+		        <div class="col-md-2">
+		        	<div class="panel panel-default ">
+	    				<div class="panel-heading">Options</div>
+				        <div class="panel-body">
+ 							<button type="button" class="btn btn-info" data-toggle="modal" data-target="#EventsDetailModal">Today's events<span class="badge">3</span></button>
+				        </div>
+			        </div>
+		        </div>
+		        
+		        
+		    	<!-- Main panel -->
+		        <div class="col-md-10 ">
+		        
+		        	<div class="panel panel-default ">
+	    				<div class="panel-heading">Calendrier</div>
+				        <div class="panel-body" id='calendar'></div>
+			        </div>
+			        
+		        </div>
+		    </div>
+				
 		</div>
-	</div>
-	
-	<%@include file="includes/includeJSProjet.jsp" %>
+		
+		
+		<!-- Event's details Modal -->
+		<div class="modal fade" id="EventsDetailModal" role="dialog">
+		  	<div class="modal-dialog">
+		    
+		    	<!-- Modal content-->
+			    <div class="modal-content">
+			    
+			    	<div class="modal-header">
+			        	<button type="button" class="close" data-dismiss="modal">&times;</button>
+			        	<h4 class="modal-title">Today's events details</h4>
+			        </div>
+			        
+			        <div class="modal-body">
+			        	
+						<div class="panel panel-danger">
+							<div class="panel-heading">Very Important Buisness Meeting</div>
+							<div class="panel-body">15:00 at Incity Tower</div>
+						</div>
+							
+						<div class="panel panel-warning">
+							<div class="panel-heading">Buy a gift for Mum</div>
+							<div class="panel-body">12:00 at La Part-Dieu</div>
+						</div>
+						
+			        	<div class="panel panel-info">
+							<div class="panel-heading">Have a beer with Ted</div>
+							<div class="panel-body">20:30 at St Patrick's pub (Lyon)</div>
+						</div>
+			        	
+			        </div>
+			        
+			        <div class="modal-footer">
+			        	<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+			        </div>
+			        
+		    	</div>
+		  	</div>
+		</div>
+		
+		<!-- Scripts nécessaires à la plupart des pages -->
+		<%@include file="includes/includeJSProjet.jsp" %>
+		<!-- Script nécessaire à l'utilisation du composant fullcalendar  -->
+		<script src='fullcalendar/fullcalendar.js'></script>
+		
 	</body>
 </html>
+
+<script>
+
+$( document ).ready(function() {
+	
+		var today = new Date();
+		
+		console.log(today);
+		// expected output: 2011-10-05T14:48:00.000Z
+		var todayString = today.toISOString();
+
+  		// page is now ready, initialize the calendar...
+
+ 		 $('#calendar').fullCalendar({
+ 			  events: [
+ 				    {
+ 				      title  : 'Very Important Buisness Meeting',
+ 				      backgroundColor : '#f2dede',
+ 				      borderColor : '#ebccd1',
+ 				      textColor : '#333',
+ 				      start  : todayString
+ 				    },
+ 				    {
+ 				      title  : 'Buy a gift for Mum',
+ 				      backgroundColor : '#fcf8e3',
+ 				      borderColor : '#faebcc',
+ 				      textColor : '#333',
+ 				      start  : todayString
+ 				    },
+ 				    {
+ 				      title  : 'Have a beer with Ted',
+ 				      backgroundColor : '#d9edf7',
+ 				      borderColor : '#bce8f1',
+ 				      textColor : '#333',
+ 				      start  : todayString
+ 				    }
+ 				  ]
+  		})
+
+	});
+
+</script>
