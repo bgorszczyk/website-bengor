@@ -43,7 +43,7 @@
 		        	<div class="panel panel-default ">
 	    				<div class="panel-heading">Options</div>
 				        <div class="panel-body">
- 							<button type="button" class="btn btn-info" data-toggle="modal" data-target="#EventsDetailModal">Events details<span class="badge">3</span></button>
+ 							<button type="button" class="btn btn-info" data-toggle="modal" data-target="#EventsDetailModal">Events details<span class="badge">${eventList.size()}</span></button>
 				        </div>
 			        </div>
 		        </div>

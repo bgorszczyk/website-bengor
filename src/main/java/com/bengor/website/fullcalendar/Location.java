@@ -1,6 +1,27 @@
 package com.bengor.website.fullcalendar;
 
-public class Location {
+import java.io.Serializable;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="LOCATION")
+public class Location implements Serializable {
+	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -388504515054191690L;
+
+	@Id
+	@Column(name = "idlocation")
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	private Long id;
 	
 	protected String cityName;
 
@@ -9,6 +30,10 @@ public class Location {
 	protected String street;
 	
 	protected Integer streetNumber;
+	
+	public Location() {
+		super();
+	};
 	
 	public Location(String cityName, String postalCode, String street, Integer streetNumber) {
 		super();
@@ -50,7 +75,10 @@ public class Location {
 		this.streetNumber = streetNumber;
 	}
 
-	
+	/**This method returns a readable string of every information stored on the Location object
+	 * 
+	 * @return String
+	 * */
 	public String toString() {
 		return (streetNumber != null ? streetNumber : "" ) + " " + street + " " + postalCode + " " + cityName;
 	}

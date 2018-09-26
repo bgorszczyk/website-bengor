@@ -1,15 +1,35 @@
 package com.bengor.website.fullcalendar;
 
-public enum Priority {
+import java.io.Serializable;
 
-	HIGH ("High Priority"),
-	MEDIUM("Medium Priority"),
-	LOW("Low Priority");
+public enum Priority implements Serializable {
+
 	
-	private final String label;
+	HIGH("HIGH","High priority"),
+	MEDIUM("MEDIUM","Medium priority"),
+	LOW("LOW","Low priority");
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 343014291616279094L;
+	
+	private String libelle;
+	private String code;
 
-	private Priority(String label) {
-		this.label = label;
+	private Priority(String libelle, String code) {
+		this.libelle = libelle;
+		this.code = code;
+	}
+
+	private Priority() {
+	}
+	
+	public String getLibelle() {
+		return libelle;
+	}
+
+	public String getCode() {
+		return code;
 	}
 	
 }
