@@ -1,4 +1,4 @@
-package com.bengor.website.fullcalendar;
+package com.bengor.website.websitebengor.fullcalendar;
 
 import java.io.Serializable;
 

@@ -30,7 +30,7 @@ public class DataSourceConfig {
 	public LocalContainerEntityManagerFactoryBean entityManagerFactory() {
 	    LocalContainerEntityManagerFactoryBean em = new LocalContainerEntityManagerFactoryBean();
 	    em.setDataSource(dataSource());
-	    em.setPackagesToScan("com.bengor.website.fullcalendar");
+	    em.setPackagesToScan("com.bengor.website.websitebengor.fullcalendar");
 	    JpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
 	    em.setJpaVendorAdapter(vendorAdapter);
 	    em.setJpaProperties(additionalProperties());

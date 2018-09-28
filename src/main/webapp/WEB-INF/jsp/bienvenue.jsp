@@ -2,7 +2,7 @@
 <% String eventModalId = "EventDetailModal";
 	int eventId = 0;%>
 
-<%@ page import="com.bengor.website.fullcalendar.Priority" %>
+<%@ page import="com.bengor.website.websitebengor.fullcalendar.Priority" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html lang="fr">
 	<head>

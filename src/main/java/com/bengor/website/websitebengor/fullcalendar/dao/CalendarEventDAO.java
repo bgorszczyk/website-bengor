@@ -1,4 +1,4 @@
-package com.bengor.website.fullcalendar.dao;
+package com.bengor.website.websitebengor.fullcalendar.dao;
 
 import java.util.List;
 
@@ -12,7 +12,7 @@ import javax.transaction.Transactional;
 
 import org.springframework.stereotype.Repository;
 
-import com.bengor.website.fullcalendar.CalendarEvent;
+import com.bengor.website.websitebengor.fullcalendar.CalendarEvent;
 
 @Repository
 public class CalendarEventDAO implements ICalendarEventDAO {

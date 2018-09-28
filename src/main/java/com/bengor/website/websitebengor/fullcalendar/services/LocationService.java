@@ -1,4 +1,4 @@
-package com.bengor.website.fullcalendar.services;
+package com.bengor.website.websitebengor.fullcalendar.services;
 
 import java.util.List;
 
@@ -6,8 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.bengor.website.fullcalendar.Location;
-import com.bengor.website.fullcalendar.dao.ILocationDAO;
+import com.bengor.website.websitebengor.fullcalendar.Location;
+import com.bengor.website.websitebengor.fullcalendar.dao.ILocationDAO;
 
 @Service
 public class LocationService implements ILocationService{

@@ -1,8 +1,8 @@
-package com.bengor.website.fullcalendar.dao;
+package com.bengor.website.websitebengor.fullcalendar.dao;
 
 import java.util.List;
 
-import com.bengor.website.fullcalendar.Location;
+import com.bengor.website.websitebengor.fullcalendar.Location;
 
 public interface ILocationDAO {
 

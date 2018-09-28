@@ -7,8 +7,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.bengor.website.fullcalendar.CalendarEvent;
-import com.bengor.website.fullcalendar.services.ICalendarEventService;
+import com.bengor.website.websitebengor.fullcalendar.CalendarEvent;
+import com.bengor.website.websitebengor.fullcalendar.services.ICalendarEventService;
 
 @Controller
 public class BienvenueController {
