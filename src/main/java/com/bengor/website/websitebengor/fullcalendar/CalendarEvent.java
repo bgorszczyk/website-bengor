@@ -13,6 +13,10 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
+import org.springframework.format.annotation.DateTimeFormat;
 
 
 @Entity
@@ -28,6 +32,14 @@ public class CalendarEvent implements Serializable {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
 
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
 	//Name of the event
 	private String name;
 	
@@ -35,9 +47,13 @@ public class CalendarEvent implements Serializable {
 	private String info;
 	
 	//Starting date of the event
+	@Temporal(TemporalType.DATE)
+	@DateTimeFormat(pattern="MM/dd/yyyy")
 	private Date startingTime;
 
 	//Ending date of the event
+	@Temporal(TemporalType.DATE)
+	@DateTimeFormat(pattern="MM/dd/yyyy")
 	private Date endingTime;
 	
 	//Location of the event

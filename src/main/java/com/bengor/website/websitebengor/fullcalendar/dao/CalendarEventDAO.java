@@ -33,9 +33,23 @@ public class CalendarEventDAO implements ICalendarEventDAO {
 	}
 
 	@Transactional
-	public void mergeCalendarEvent(CalendarEvent event) {
+	public CalendarEvent mergeCalendarEvent(CalendarEvent event) {
 		
-		entityManager.merge(event);
+		return entityManager.merge(event);
+		
+	}
+
+	@Transactional
+	public void deleteCalendarEvent(CalendarEvent event) {
+		
+		entityManager.remove(event);
+		
+	}
+	
+	public CalendarEvent getFromId(final Long idEvent) {
+		
+		CalendarEvent calendarEvent = entityManager.find(CalendarEvent.class, idEvent);
+		return calendarEvent;
 		
 	}
 	

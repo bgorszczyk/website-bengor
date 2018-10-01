@@ -21,8 +21,22 @@ public class CalendarEventService implements ICalendarEventService{
     }
 
 	@Override
-	public void mergeCalendarEvent(CalendarEvent event) {
+	public CalendarEvent mergeCalendarEvent(CalendarEvent event) {
 		
-		dao.mergeCalendarEvent(event);		
+		return dao.mergeCalendarEvent(event);		
+	}
+
+	@Override
+	public void deleteCalendarEvent(CalendarEvent event) {
+		
+		dao.deleteCalendarEvent(event);
+		
+	}
+
+	@Override
+	public CalendarEvent getFromId(Long idEvent) {
+		
+		CalendarEvent calendarEvent = dao.getFromId(idEvent);
+		return calendarEvent;
 	}
 }

@@ -7,5 +7,7 @@ import com.bengor.website.websitebengor.fullcalendar.CalendarEvent;
 public interface ICalendarEventDAO {
 
 	List<CalendarEvent> searchCalendarEvent();
-	void mergeCalendarEvent(final CalendarEvent events);
+	CalendarEvent mergeCalendarEvent(final CalendarEvent event);
+	void deleteCalendarEvent(final CalendarEvent event);
+	CalendarEvent getFromId(final Long idEvent);
 }

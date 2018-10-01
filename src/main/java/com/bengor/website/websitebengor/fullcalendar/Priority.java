@@ -16,7 +16,7 @@ public enum Priority implements Serializable {
 	private String libelle;
 	private String code;
 
-	private Priority(String libelle, String code) {
+	private Priority(String code,String libelle) {
 		this.libelle = libelle;
 		this.code = code;
 	}
