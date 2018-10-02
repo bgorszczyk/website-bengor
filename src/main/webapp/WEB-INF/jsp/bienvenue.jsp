@@ -89,6 +89,10 @@
 							            <form:input class="form-control" path="name" placeholder="Enter name"/>
 							            <form:input path="id" type="hidden"/>
 							        </div>
+							       <div class="form-group">
+							            <label>Event's info</label>
+							            <form:textarea id="eventInfo" class="form-control" path="info" placeholder="Enter infos"/>
+							        </div>
 							        <div class="form-group">
 							        	<label>Event's starting date</label>
 							        	<div class="input-group">
@@ -186,7 +190,11 @@
 				
 										<!-- Panel content -->
 										<div class="panel-heading">${ev.name}</div>
-										<div class="panel-body">${ev.startingTime} at ${ev.location.toString()}</div>
+										<div class="panel-body">
+											<div>${ev.info}</div>
+											<div>from ${ev.startingTime} to ${ev.endingTime}</div>
+											<div>at ${ev.location.toString()}</div>
+										</div>
 										<div class="panel-footer">
 											<div class="col-md-8"></div>
 											<div class="col-md-2">
@@ -253,7 +261,11 @@
 					        	</c:otherwise>
 					        </c:choose>
 										<div class="panel-heading">${ev.name}</div>
-										<div class="panel-body">${ev.startingTime} at ${ev.location.toString()}</div>
+										<div class="panel-body">
+											<div>${ev.info}</div>
+											<div>from ${ev.startingTime} to ${ev.endingTime}</div>
+											<div>at ${ev.location.toString()}</div>
+										</div>
 										<div class="panel-footer">
 											<div class="col-md-8"></div>
 											<div class="col-md-2">
