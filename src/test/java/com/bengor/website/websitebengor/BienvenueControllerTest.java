@@ -14,6 +14,8 @@ import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
 
+import com.bengor.website.websitebengor.BienvenueController;
+
 @RunWith(SpringRunner.class)
 @WebMvcTest(BienvenueController.class)
 public class BienvenueControllerTest {
@@ -28,7 +30,7 @@ public class BienvenueControllerTest {
     }
     
 	@Test
-	public void test() throws Exception {
+	public void testBienvenue() throws Exception {
 		mockMvc.perform(MockMvcRequestBuilders.get("/")).andExpect(status().isOk()).andExpect(view().name("bienvenue"));
 	}
 

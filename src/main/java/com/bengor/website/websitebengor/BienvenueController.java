@@ -23,8 +23,10 @@ public class BienvenueController {
 	@Autowired
 	private ICalendarEventService serviceEvent;
 
+	boolean editMode = false;
+	
     @RequestMapping("/")
-    public String afficherBienvenue(final ModelMap pModel, boolean editMode) {
+    public String afficherBienvenue(final ModelMap pModel) {
 
     	pModel.addAttribute("editMode", editMode);
     	
@@ -54,7 +56,9 @@ public class BienvenueController {
     		//Cleaning the formEvent
             pModel.addAttribute("formEvent", new CalendarEvent());
     	 }
-    	return afficherBienvenue(pModel,false);
+    	
+    	editMode = false;
+    	return "redirect:";
     }
     
     @RequestMapping(value="/deleteEvent", method = RequestMethod.GET)
@@ -64,8 +68,10 @@ public class BienvenueController {
     	if(eventToDelete != null) {
     		serviceEvent.deleteCalendarEvent(eventToDelete);
     	}
+
     	
-    	return afficherBienvenue(pModel,false);
+    	editMode = false;
+    	return "redirect:";
     }
     
     @RequestMapping(value="/editEvent", method = RequestMethod.GET)
@@ -76,7 +82,8 @@ public class BienvenueController {
     		pModel.addAttribute("formEvent", eventToEdit);
     	}
     	
-    	return afficherBienvenue(pModel,true);
+    	editMode = true;
+    	return afficherBienvenue(pModel);
     }
 
 }
